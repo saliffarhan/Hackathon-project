@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image"; // Adjust the import path as needed
-import { Button } from "@/components/ui/button"; // Assuming you're using a custom Button component
 import { useWishlist } from "../WishlistContext/page";
 
 export default function WishlistPage() {
@@ -19,7 +18,7 @@ export default function WishlistPage() {
                     key={item.id}
                     className="rounded-xl"
                   >
-                    <div className="w-full h-52 relative rounded-xl ">
+                    <div className="w-full h-52 relative rounded-xl">
                       {item.image && (
                         <Image
                           src={urlFor(item.image).url()}
@@ -33,13 +32,12 @@ export default function WishlistPage() {
                       <h2 className=" text-base  text-gray-600">{item.name}</h2>
                       <p className="text-red-600 text-sm font-medium my-2"><span className="text-gray-600">Price: </span>${item.price}</p>
                     </div>
-                      <Button
-                        variant="destructive"
+                      <button
                         className="bg-orange-300"
                         onClick={() => removeFromWishlist(item.id)}
                       >
                         Remove
-                      </Button>
+                      </button>
                   </div>
                 ))}
               </div>
